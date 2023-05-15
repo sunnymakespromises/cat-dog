@@ -14,6 +14,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "start-api": "react-scripts start & cd api && env/bin/flask run --no-debugger",
     "api": "cd api && env/bin/flask run --no-debugger",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -36,5 +37,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.3.2"
   }
 }

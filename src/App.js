@@ -1,35 +1,30 @@
-import logo from './logo.svg'
+/* eslint-disable react/style-prop-object */
 import './App.css'
-import { useEffect, useState } from 'react';
+import Text from './components/text'
+import Image from './components/image'
+import { useEffect, useState } from 'react'
 
 function App() {
-    const [currentTime, setCurrentTime] = useState(0);
+    const [data, setData] = useState(null)
 
     useEffect(() => {
-        fetch('/time').then(res => res.json()).then(data => {
-            setCurrentTime(data.time)
+        fetch('/getdata').then(res => res.json()).then(data => {
+            setData(data)
         })
     }, [])
 
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-        <p>The current time is {currentTime}.</p>
-      </header>
-    </div>
-  );
+    return (
+        <div className = 'w-screen h-screen flex flex-col items-center p-4 bg-gradient-to-b dark:from-cyan-500 dark:to-indigo-500 from-violet-400 to-pink-400 overflow-hidden overscroll-none'>
+            <div id = 'header' className = 'flex justify-center h-24 w-full'>
+                <Image path = 'logo.png' classNames = 'h-full aspect-square'/>
+            </div>
+            <div id = 'body' className = 'w-full h-full flex flex-col justify-center items-center'>
+                <div id = 'chart-container' className = 'w-[80%] h-[90%] backdrop-blur-lg backdrop-brightness-110 shadow-lg rounded-xl'>
+
+                </div>
+            </div>
+        </div>
+    )
 }
 
-export default App;
+export default App

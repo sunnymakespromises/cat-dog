@@ -26,13 +26,8 @@ export default function Button({ text, style, styles, isListener, classNames, on
 
     let options = [
         {
-            title: 'main',
-            classNames: 'transition-all ease-in-out bg-secondary-0 hover:bg-secondary-100 dark:bg-tertiary-0 dark:hover:bg-tertiary-100 hover:scale-105 rounded-full px-6 py-2 shadow-sm',
-            textClassNames: ''
-        },
-        {
-            title: 'actionIcon',
-            classNames: 'transition-all ease-in-out rounded-3xl !rounded-r-none pr-4 p-2 pl-6 shadow-sm',
+            title: 'upload',
+            classNames: 'w-full text-center relative transition-all ease-in-out backdrop-brightness-90 hover:backdrop-brightness-[0.85] rounded-xl px-6 py-2',
             textClassNames: ''
         },
     ]

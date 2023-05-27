@@ -3,7 +3,27 @@ export default function Text({ style, styles, classNames, children, ...extras })
     let options = [
         { 
             title: 'main', 
-            classNames: 'select-none transition-all ease-in-out font-main text-xl md:text-4xl text-center text-reverse dark:text-base-0'
+            classNames: 'select-none contents whitespace-nowrap transition-all ease-in-out font-main text-3xl md:text-3xl text-reverse-0 dark:text-base-0'
+        },
+        { 
+            title: 'upload-error', 
+            classNames: 'select-none  transition-all ease-in-out font-main text-sm md:text-lg text-reverse-0 dark:text-base-0'
+        },
+        { 
+            title: 'info-value', 
+            classNames: 'select-none whitespace-nowrap transition-all ease-in-out font-main text-3xl md:text-5xl text-reverse-0 dark:text-base-0'
+        },
+        { 
+            title: 'info-key', 
+            classNames: 'select-none transition-all ease-in-out font-main text-xl md:text-3xl text-reverse-0 dark:text-base-0'
+        },
+        { 
+            title: 'graph-axis', 
+            classNames: 'select-none whitespace-nowrap transition-all ease-in-out font-main text-base md:text-xl text-reverse-0 dark:text-base-0'
+        },
+        { 
+            title: 'graph-label', 
+            classNames: 'select-none whitespace-nowrap transition-all ease-in-out font-main text-center text-sm md:text-lg text-reverse-0 dark:text-base-0 text-shadow-sm'
         }
     ]
 

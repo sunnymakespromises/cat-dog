@@ -71,7 +71,7 @@ function Point({point, onClick}) {
 
 function Info({point}) {
     return (
-        <div id = 'graph-info-container' className = 'w-full h-min flex flex-row-reverse md:flex-col justify-between md:justify-start gap-4'>
+        <div id = 'graph-info-container' className = 'w-full h-min flex flex-row md:flex-col justify-between md:justify-start gap-4'>
         {point?.user ?
             <div id = 'graph-info-image' className = 'w-full aspect-square rounded-xl bg-center bg-no-repeat bg-cover' style = {{ backgroundImage: 'url(' + point?.img + ')'}}/>
         :

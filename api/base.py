@@ -26,12 +26,12 @@ def upload():
     if request.method == 'POST':
         if 'file' not in request.files:
             response['status'] = False
-            response['message'] = 'No file uploaded.'
+            response['message'] = 'no file uploaded.'
             return response
         file = request.files['file']
         if file.filename == '':
             response['status'] = False
-            response['message'] = 'No file uploaded.'
+            response['message'] = 'no file uploaded.'
             return response
         if file and file_is_allowed(file.filename):
             filename = secure_filename(file.filename)
@@ -50,7 +50,11 @@ def upload():
                 'probabilities': probabilities_dict,
                 'category': category
             }
-        return response
+            return response
+        else:
+            response['status'] = False
+            response['message'] = 'only .jpg, .png, and .jpeg files allowed.'
+            return response
     else:
         return response
     

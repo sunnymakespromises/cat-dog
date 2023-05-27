@@ -14,7 +14,7 @@ TEST_DOG, TEST_CAT, TEST_SNAKE = os.path.join(TEST, 'dog'), os.path.join(TEST, '
 
 
 if os.path.exists(os.path.join(MODELS, 'model.pt')): # if there is a trained model, get the classification from the sample outputs and output them in a json file
-    SAMPLE_LIMIT = 20
+    SAMPLE_LIMIT = 10
     animals = []
 
     prediction = CustomImageClassification()
@@ -43,8 +43,7 @@ if os.path.exists(os.path.join(MODELS, 'model.pt')): # if there is a trained mod
             obj = {
                 'name': animal,
                 'probabilities': probabilities,
-                'category': sorted(probabilities, key = probabilities.get, reverse = True)[0],
-                'img': 'animals/' + animal + '.jpg'
+                'category': sorted(probabilities, key = probabilities.get, reverse = True)[0]
             }
             print(obj)
             animals.append(obj)

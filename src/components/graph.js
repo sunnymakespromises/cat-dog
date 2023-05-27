@@ -61,7 +61,7 @@ function Point({point, onClick}) {
         return 'rgb(' + r + ',' + g + ',' + b + ')'
     }
     return (
-        <div className = {'group absolute hover:z-10 h-4 md:h-6 aspect-square rounded-full flex flex-col justify-center items-center cursor-pointer ' + (point.name === 'your image' ? 'brightness-[3]' : 'brightness-[2]')} style = {{ left: (((dog - cat) / 2) + 50) + '%', bottom: snake + '%', backgroundColor: color() }} onClick = {() => onClick(point)}>
+        <div className = {'group transition-all absolute hover:z-10 hover:scale-110 h-4 md:h-6 aspect-square rounded-full flex flex-col justify-center items-center cursor-pointer ' + (point.name === 'your image' ? 'brightness-[3]' : 'brightness-[2]')} style = {{ left: (((dog - cat) / 2) + 50) + '%', bottom: snake + '%', backgroundColor: color() }} onClick = {() => onClick(point)}>
             <Text style = 'graph-label' classNames = 'absolute hidden group-hover:flex'>
                 {point.name}
             </Text>
@@ -75,13 +75,14 @@ function Info({point}) {
         {point?.user ?
             <div id = 'graph-info-image' className = 'w-full aspect-square rounded-xl bg-center bg-no-repeat bg-cover' style = {{ backgroundImage: 'url(' + point?.img + ')'}}/>
         :
-            <Image id = 'graph-info-image' path = {point?.img} classNames = 'h-28 md:h-40 aspect-square rounded-xl !bg-cover'/>
+            // <Image id = 'graph-info-image' path = {point?.img} classNames = 'h-28 md:h-40 aspect-square rounded-xl !bg-cover'/>
+            null
         }
             <div id = 'graph-info-text' className = 'flex flex-col gap-0.5 md:gap-4'>
                 <div id = 'graph-info-name' className = 'flex flex-col'>
                     <Text style = 'info-key'>{point?.name ? point?.name + ' is a ' + point?.category: ''}</Text>
                 </div>
-                <div id = 'graph-info-probabilities'>
+                <div id = 'graph-info-probabilities' className = 'flex flex-col gap-2'>
                 {Object.keys(point?.probabilities)?.map((probability, index) => {
                     return (
                         <div key = {index} id = {'graph-info-' + probability} className = 'flex flex-col gap-0 md:gap-2'>

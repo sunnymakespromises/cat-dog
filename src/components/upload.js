@@ -1,11 +1,12 @@
 /* eslint-disable react/style-prop-object */
 import Text from './text'
 import Button from './button'
-import { useRef } from 'react'
+import { useRef, useState } from 'react'
 
 /* src/components/upload.js */
 export default function Upload({onUpload}) {
     const inputButton = useRef(null)
+    const [error, setError] = useState('')
 
     async function handleUpload(event) {
         const file = event.target.files[0]
@@ -17,8 +18,11 @@ export default function Upload({onUpload}) {
                 body: data
             })
             .then(res => res.json())
-            .then(json => {
-                onUpload(file, json)
+            .then(response => {
+                onUpload(file, response)
+                setError(response.message)
+                const timer = setTimeout(() => {setError('')}, 5000)
+                return () => clearTimeout(timer)
             })
         }
     }
@@ -31,6 +35,9 @@ export default function Upload({onUpload}) {
                     Upload
                 </Text>
             </Button>
+            <Text style = 'upload-error'>
+                {error}
+            </Text>
         </div>
     )
 }

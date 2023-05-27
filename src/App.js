@@ -15,11 +15,13 @@ function App() {
     }, [])
 
     function onUpload(file, newData) {
-        setData([...data, {
-            ...newData.data,
-            'img': URL.createObjectURL(file),
-            'user': true
-        }])
+        if (newData.status) {
+            setData([...data, {
+                ...newData.data,
+                'img': URL.createObjectURL(file),
+                'user': true
+            }])
+        }
     }
 
     return (

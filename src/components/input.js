@@ -9,9 +9,9 @@ export default function Input({ value, status, type, style, styles, classNames, 
     let options = [
         { 
             title: 'main', 
-            classNames: 'transition-all ease-in-out text-reverse-0 dark:text-base-0 text-3xl bg-black bg-opacity-[0.035] dark:bg-opacity-30 focus:outline-none px-3 py-2 rounded-xl',
+            classNames: 'transition-all ease-in-out text-base-0 text-3xl bg-black bg-opacity-30 focus:outline-none px-3 py-2 rounded-xl',
             trueStatus: 'bg-emerald-50 border border-emerald-500 text-emerald-900',
-            falseStatus: 'bg-rose-500 dark:bg-rose-900 border border-4 border-rose-500',
+            falseStatus: 'bg-rose-900 border border-4 border-rose-500',
             nullStatus: 'border border-4 border-transparent'
         }
     ]

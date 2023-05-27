@@ -23,10 +23,8 @@ function App() {
     }
 
     return (
-        <div className = 'transition-all relative w-screen h-screen flex flex-col items-center p-4 md:p-8 bg-gradient-to-b from-cyan-500 to-indigo-500 dark:from-violet-400 dark:to-pink-400 overflow-hidden overscroll-none'>
-            <div className = 'absolute top-0 left-0 w-full h-full bg-center bg-cover bg-no-repeat bg-[url(../public/img/bg-light.png)] dark:bg-[url(../public/img/bg-dark.png)]'/>
-            <div id = 'body' className = 'relative w-full h-full flex flex-col justify-center rounded-xl'>
-                <div className = 'absolute top-0 left-0 w-full h-full backdrop-brightness-110 backdrop-blur-2xl rounded-xl'/>
+        <div className = 'transition-all relative w-screen h-screen flex flex-col items-center p-4 md:p-8 bg-reverse-100 overflow-hidden overscroll-none'>
+            <div id = 'body' className = 'relative w-full h-full flex flex-col justify-center border-main border-base-0'>
                 <Graph points = {data} onUpload = {onUpload}/>
             </div>
         </div>

@@ -52,14 +52,8 @@ function Point({point, onClick}) {
     let cat = point.probabilities.cat
     let dog = point.probabilities.dog
     let snake = point.probabilities.snake
-    const color = () => {
-        let r = Math.round((dog / 100) * 255)
-        let g = Math.round((snake / 100) * 255)
-        let b = Math.round((cat / 100) * 255)
-        return 'rgb(' + r + ',' + g + ',' + b + ')'
-    }
     return (
-        <div className = {'group transition-all absolute hover:z-10 hover:scale-110 h-4 md:h-6 aspect-square rounded-full flex flex-col justify-center items-center cursor-pointer ' + (point.name === 'your image' ? 'brightness-[3]' : 'brightness-[2]')} style = {{ left: (((dog - cat) / 2) + 50) + '%', bottom: snake + '%', backgroundColor: color() }} onClick = {() => onClick(point)}>
+        <div className = 'group transition-all absolute hover:z-10 hover:scale-110 h-4 md:h-6 aspect-square rounded-full shadow-md flex flex-col justify-center items-center cursor-pointer brightness-[2]' style = {{ left: (((dog - cat) / 2) + 50) + '%', bottom: snake + '%', backgroundColor: color(point) }} onClick = {() => onClick(point)}>
             <Text style = 'graph-label' classNames = 'absolute hidden group-hover:flex'>
                 {point.name}
             </Text>
@@ -68,6 +62,14 @@ function Point({point, onClick}) {
 }
 
 function Info({point}) {
+    function padded(number) {
+        let string = number.toString()
+        if (string.split('.')[0].length === 1) {
+            return '0' + string
+        }
+        return string
+    }
+
     return (
         <div id = 'graph-info-container' className = 'w-full h-min flex flex-row md:flex-col justify-between md:justify-start gap-4'>
         {point?.user ?
@@ -76,18 +78,19 @@ function Info({point}) {
             null
         }
             <div id = 'graph-info-text' className = 'flex flex-col gap-0.5 md:gap-4'>
-                <div id = 'graph-info-name' className = 'flex flex-col'>
-                    <Text style = 'info-key'>{point?.name ? point?.name + ' is a ' + point?.category: ''}</Text>
+                <div id = 'graph-info-name' className = 'flex flex-row md:flex-col gap-2 md:gap-0'>
+                    <Text style = 'info-key' classNames = 'brightness-[2]' styles = {{ color: color(point) }}>{point?.name ? point.name : ''}</Text>
+                    <Text style = 'info-key'>{point?.name ? 'is a ' + point?.category: ''}</Text>
                 </div>
                 <div id = 'graph-info-probabilities' className = 'flex flex-col gap-2'>
                 {Object.keys(point?.probabilities)?.map((probability, index) => {
                     return (
                         <div key = {index} id = {'graph-info-' + probability} className = 'flex flex-col gap-0 md:gap-2'>
                             <div id = {'graph-info-' + probability + '-text'} className = 'flex flex-row items-baseline gap-2'>
-                                <Text style = 'info-value'>{point.probabilities[probability].toFixed(2) + '%'}</Text>
+                                <Text style = 'info-value'>{padded(point.probabilities[probability].toFixed(2)) + '%'}</Text>
                                 <Text style = 'info-key'>{probability}</Text>
                             </div>
-                            <div id = {'graph-info-' + probability + '-bar'} className = {'transition-all ' + (point.probabilities[probability] !== 0 ? 'h-2 md:h-4' : 'h-0') + ' bg-white rounded-xl'} style = {{ width: point.probabilities[probability].toFixed(2) + '%' }}/>
+                            <div id = {'graph-info-' + probability + '-bar'} className = {'transition-all ' + (point.probabilities[probability] !== 0 ? 'h-2 md:h-4' : 'h-0') + ' bg-base-0'} style = {{ width: point.probabilities[probability].toFixed(2) + '%' }}/>
                         </div>
                     )
                 })}
@@ -95,4 +98,14 @@ function Info({point}) {
             </div>
         </div>
     )
+}
+
+function color(point)  {
+    let cat = point.probabilities.cat
+    let dog = point.probabilities.dog
+    let snake = point.probabilities.snake
+    let r = Math.round((dog / 100) * 255)
+    let g = Math.round((snake / 100) * 255)
+    let b = Math.round((cat / 100) * 255)
+    return 'rgb(' + r + ',' + g + ',' + b + ')'
 }

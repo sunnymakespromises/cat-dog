@@ -27,7 +27,7 @@ export default function Button({ text, style, styles, isListener, classNames, on
     let options = [
         {
             title: 'upload',
-            classNames: 'w-full text-center relative transition-all ease-in-out backdrop-brightness-90 hover:backdrop-brightness-[0.85] rounded-xl px-6 py-2',
+            classNames: 'w-full text-center relative transition-all ease-in-out border-main border-base-0 hover:scale-[1.02] md:hover:scale-[1.04] px-6 py-2',
             textClassNames: ''
         },
     ]

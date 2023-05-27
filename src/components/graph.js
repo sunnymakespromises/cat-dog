@@ -1,8 +1,6 @@
 /* eslint-disable react/style-prop-object */
-import Image from './image'
 import { useEffect, useState } from 'react'
 import Text from './text'
-import Button from './button'
 import Upload from './upload'
 
 /* src/components/graph.js */
@@ -75,7 +73,6 @@ function Info({point}) {
         {point?.user ?
             <div id = 'graph-info-image' className = 'w-full aspect-square rounded-xl bg-center bg-no-repeat bg-cover' style = {{ backgroundImage: 'url(' + point?.img + ')'}}/>
         :
-            // <Image id = 'graph-info-image' path = {point?.img} classNames = 'h-28 md:h-40 aspect-square rounded-xl !bg-cover'/>
             null
         }
             <div id = 'graph-info-text' className = 'flex flex-col gap-0.5 md:gap-4'>

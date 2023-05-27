@@ -1,8 +1,6 @@
 /* eslint-disable react/style-prop-object */
 import './App.css'
 import Graph from './components/graph'
-import Image from './components/image'
-import Upload from './components/upload'
 import { useEffect, useState } from 'react'
 
 function App() {

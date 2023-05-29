@@ -2,4 +2,5 @@ Flask==2.2.2
 numpy==1.24.3
 Werkzeug==2.3.4
 Pillow
-imageai
+# imageai
+keras

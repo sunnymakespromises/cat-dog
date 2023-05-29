@@ -2,10 +2,10 @@ import numpy as np
 from flask import Flask, request
 from werkzeug.utils import secure_filename
 from PIL import Image
-from imageai.Classification.Custom import CustomImageClassification
+# from imageai.Classification.Custom import CustomImageClassification
+from keras.models import load_model
 
 app = Flask(__name__)
-app.config['UPLOAD_FOLDER'] = '/uploads'
 
 @app.route('/upload', methods=['GET', 'POST'])
 def upload():
@@ -28,6 +28,8 @@ def upload():
             filename = secure_filename(file.filename)
             print(filename)
             img = np.array(Image.open(file.stream))
+            model = load_model('data/models/model.pt')
+            result = model.predict(img)
             # prediction = CustomImageClassification()
             # prediction.setModelTypeAsDenseNet121()
             # prediction.setModelPath('data/models/model.pt')
@@ -41,7 +43,7 @@ def upload():
             #     'probabilities': probabilities_dict,
             #     'category': category
             # }
-            return response
+            return result
         else:
             response['status'] = False
             response['message'] = 'only .jpg, .png, and .jpeg files allowed.'

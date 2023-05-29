@@ -2,7 +2,7 @@ import numpy as np
 from flask import Flask, request
 from werkzeug.utils import secure_filename
 from PIL import Image
-# from imageai.Classification.Custom import CustomImageClassification
+from imageai.Classification.Custom import CustomImageClassification
 
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = '/uploads'

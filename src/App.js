@@ -43,7 +43,7 @@ function App() {
                         you can also upload your own pictures and see how the network classifies it :3
                     </Text>
                 </div>
-                <div id = 'body' className = 'relative w-full h-screen flex flex-col justify-center border-main border-base-0'>
+                <div id = 'body' className = 'relative w-full h-full flex flex-col justify-center border-main border-base-0'>
                     <Graph points = {data} onUpload = {onUpload}/>
                 </div>
             </div>

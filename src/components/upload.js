@@ -2,6 +2,7 @@
 import Text from './text'
 import Button from './button'
 import { useRef, useState } from 'react'
+const api = 'https://cat-dog-48il4jap4-sunnymakespromises.vercel.app/'
 
 /* src/components/upload.js */
 export default function Upload({onUpload}) {
@@ -13,7 +14,7 @@ export default function Upload({onUpload}) {
         if (file != null) {
             const data = new FormData()
             data.append('file', file)
-            await fetch('/upload', {
+            await fetch(api, {
                 method: 'post',
                 body: data
             })

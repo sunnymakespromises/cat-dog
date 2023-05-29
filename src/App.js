@@ -26,8 +26,8 @@ function App() {
 
     return (
         <div className = 'transition-all relative w-screen h-screen flex flex-col items-center p-4 md:p-8 bg-reverse-100 overflow-hidden overscroll-none'>
-            <div id = 'screen' className = 'flex flex-col gap-8 w-full h-full overflow-auto overscroll-none'>
-                <div id = 'intro' className = 'w-full flex flex-col'>
+            <div id = 'screen' className = 'flex flex-col gap-4 w-full h-full overflow-auto overscroll-none'>
+                <div id = 'intro' className = 'w-full flex flex-col gap-1'>
                     <Text style = 'title'>
                         <TypeAnimation
                             sequence={[

@@ -2,7 +2,7 @@ import numpy as np
 from flask import Flask, request
 from werkzeug.utils import secure_filename
 from PIL import Image
-from imageai.Classification.Custom import CustomImageClassification
+# from imageai.Classification.Custom import CustomImageClassification
 
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = '/uploads'
@@ -28,19 +28,19 @@ def upload():
             filename = secure_filename(file.filename)
             print(filename)
             img = np.array(Image.open(file.stream))
-            prediction = CustomImageClassification()
-            prediction.setModelTypeAsDenseNet121()
-            prediction.setModelPath('data/models/model.pt')
-            prediction.setJsonPath('data/models/classes.json')
-            prediction.loadModel()
-            predictions, probabilities = prediction.classifyImage(img, result_count = 3)
-            probabilities_dict = dict(zip(predictions, probabilities))
-            category = sorted(probabilities_dict, key = probabilities_dict.get, reverse = True)[0]
-            response['data'] = {
-                'name': 'your image',
-                'probabilities': probabilities_dict,
-                'category': category
-            }
+            # prediction = CustomImageClassification()
+            # prediction.setModelTypeAsDenseNet121()
+            # prediction.setModelPath('data/models/model.pt')
+            # prediction.setJsonPath('data/models/classes.json')
+            # prediction.loadModel()
+            # predictions, probabilities = prediction.classifyImage(img, result_count = 3)
+            # probabilities_dict = dict(zip(predictions, probabilities))
+            # category = sorted(probabilities_dict, key = probabilities_dict.get, reverse = True)[0]
+            # response['data'] = {
+            #     'name': 'your image',
+            #     'probabilities': probabilities_dict,
+            #     'category': category
+            # }
             return response
         else:
             response['status'] = False

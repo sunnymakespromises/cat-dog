@@ -9,9 +9,9 @@ function App() {
     const [data, setData] = useState([])
 
     useEffect(() => {
-        fetch('/getdata').then(res => res.json()).then(data => {
-            setData(data)
-        })
+        fetch('/api/data/data.json')
+            .then(response => response.json())
+            .then(res => setData(res))
     }, [])
 
     function onUpload(file, newData) {

@@ -1,4 +1,3 @@
-import os, json
 import numpy as np
 from flask import Flask, request
 from werkzeug.utils import secure_filename
@@ -7,14 +6,6 @@ from imageai.Classification.Custom import CustomImageClassification
 
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = '/uploads'
-
-@app.route('/getdata')
-def main():
-    ROOT = 'data'
-    DATA = os.path.join(ROOT, 'data.json')
-    with open(DATA) as file:
-        parsed = json.load(file)
-    return parsed
 
 @app.route('/upload', methods=['GET', 'POST'])
 def upload():

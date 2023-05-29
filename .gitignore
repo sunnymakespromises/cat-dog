@@ -8,8 +8,6 @@
 # api
 /api/env
 /api/__pycache__
-/api/main.py
-/api/base.py
 /api/data/*
 !/api/data/models
 !/api/data/data.json

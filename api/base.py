@@ -1,3 +1,4 @@
+import os, json
 import numpy as np
 from flask import Flask, request
 from werkzeug.utils import secure_filename
@@ -5,11 +6,18 @@ from PIL import Image
 from imageai.Classification.Custom import CustomImageClassification
 
 app = Flask(__name__)
+app.config['UPLOAD_FOLDER'] = '/uploads'
 
+@app.route('/getdata')
+def main():
+    ROOT = 'data'
+    DATA = os.path.join(ROOT, 'data.json')
+    with open(DATA) as file:
+        parsed = json.load(file)
+    return parsed
 
-@app.route("/", defaults={"path": ""})
-@app.route("/<path:path>")
-def catch_all(path):
+@app.route('/upload', methods=['GET', 'POST'])
+def upload():
     response = {'status': True, 'message': '', 'data': None}
     def file_is_allowed(filename):
         return '.' in filename and \
@@ -49,3 +57,7 @@ def catch_all(path):
             return response
     else:
         return response
+    
+
+if __name__ == "__main__":
+    app.run(debug=True)

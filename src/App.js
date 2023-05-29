@@ -4,7 +4,7 @@ import Graph from './components/graph'
 import { useState } from 'react'
 import Text from './components/text'
 import { TypeAnimation } from 'react-type-animation'
-import animals from '../api/data/data.json'
+import animals from './res/data.json'
 
 function App() {
     const [data, setData] = useState(animals)

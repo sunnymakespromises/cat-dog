@@ -1,18 +1,13 @@
 /* eslint-disable react/style-prop-object */
 import './App.css'
 import Graph from './components/graph'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import Text from './components/text'
 import { TypeAnimation } from 'react-type-animation'
+import animals from '../api/data/data.json'
 
 function App() {
-    const [data, setData] = useState([])
-
-    useEffect(() => {
-        fetch('/api/data/data.json')
-            .then(response => response.json())
-            .then(res => setData(res))
-    }, [])
+    const [data, setData] = useState(animals)
 
     function onUpload(file, newData) {
         if (newData.status) {

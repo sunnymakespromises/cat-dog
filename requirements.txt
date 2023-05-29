@@ -4,3 +4,4 @@ Werkzeug==2.3.4
 Pillow
 # imageai
 keras
+tensorflow

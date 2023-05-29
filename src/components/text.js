@@ -6,6 +6,14 @@ export default function Text({ style, styles, classNames, children, ...extras })
             classNames: 'select-none contents whitespace-nowrap transition-all ease-in-out font-main text-3xl md:text-3xl text-base-0'
         },
         { 
+            title: 'title', 
+            classNames: 'select-none cursor-default whitespace-nowrap transition-all ease-in-out font-main text-4xl md:text-4xl text-base-0'
+        },
+        { 
+            title: 'subtitle', 
+            classNames: 'select-none transition-all ease-in-out font-main text-xl md:text-xl text-base-0'
+        },
+        { 
             title: 'upload-error', 
             classNames: 'select-none  transition-all ease-in-out font-main text-sm md:text-lg text-base-0'
         },

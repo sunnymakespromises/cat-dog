@@ -11,7 +11,7 @@ export default function Text({ style, styles, classNames, children, ...extras })
         },
         { 
             title: 'subtitle', 
-            classNames: 'select-none transition-all ease-in-out font-main text-xl md:text-xl text-base-0'
+            classNames: 'select-none transition-all ease-in-out font-main text-sm md:text-xl text-base-0'
         },
         { 
             title: 'upload-error', 

@@ -1,18 +1,13 @@
 /* eslint-disable react/style-prop-object */
 import './App.css'
 import Graph from './components/graph'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import Text from './components/text'
 import { TypeAnimation } from 'react-type-animation'
+import animals from './res/data.json'
 
 function App() {
-    const [data, setData] = useState([])
-
-    useEffect(() => {
-        fetch('/getdata').then(res => res.json()).then(data => {
-            setData(data)
-        })
-    }, [])
+    const [data, setData] = useState(animals)
 
     function onUpload(file, newData) {
         if (newData.status) {
@@ -26,8 +21,8 @@ function App() {
 
     return (
         <div className = 'transition-all relative w-screen h-screen flex flex-col items-center p-4 md:p-8 bg-reverse-100 overflow-hidden overscroll-none'>
-            <div id = 'screen' className = 'flex flex-col gap-8 w-full h-full overflow-auto overscroll-none'>
-                <div id = 'intro' className = 'w-full flex flex-col'>
+            <div id = 'screen' className = 'flex flex-col gap-4 w-full h-full overflow-auto overscroll-none'>
+                <div id = 'intro' className = 'w-full flex flex-col gap-1'>
                     <Text style = 'title'>
                         <TypeAnimation
                             sequence={[
@@ -43,7 +38,7 @@ function App() {
                         you can also upload your own pictures and see how the network classifies it :3
                     </Text>
                 </div>
-                <div id = 'body' className = 'relative w-full h-screen flex flex-col justify-center border-main border-base-0'>
+                <div id = 'body' className = 'relative w-full h-full flex flex-col justify-center border-main border-base-0'>
                     <Graph points = {data} onUpload = {onUpload}/>
                 </div>
             </div>

@@ -5,15 +5,17 @@
 /.pnp
 .pnp.js
 
-# flask environment
+# api
 /api/env
 /api/__pycache__
 /api/data/*
 !/api/data/models
+!/api/data/data.json
 
 
 # blender
 .blend
+.blend1
 
 # testing
 /coverage

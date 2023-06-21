@@ -35,7 +35,7 @@ function App() {
                     <Text style = 'subtitle'>
                         inspired by <a href = 'https://twitter.com/sonnen_konig/status/1657711956743139332?s=46&t=tdKjigfuSqFFkKoOpXqGkg' className = 'text-blue-500 underline'>this tweet</a>, 
                         catdog is a silly little neural network that classifies animals as being either dog, cat, or snake.
-                        you can also upload your own pictures and see how the network classifies it :3
+                        you can(not LMFAO sorry it doesn't work anymore 💔) also upload your own pictures and see how the network classifies it :3
                     </Text>
                 </div>
                 <div id = 'body' className = 'relative w-full h-full flex flex-col justify-center border-main border-base-0'>
